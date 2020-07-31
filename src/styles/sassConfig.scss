@@ -7,3 +7,24 @@ $color-main: #34393f;
   -o-#{$type}: $value;
   #{$type}: $value;
 }
+
+%clearfix {
+  *zoom: 1;
+  &:before {
+    content: " ";
+    display: table
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin webkitA($type, $value) {
+  #{$type}: -webkit-#{$value};
+  #{$type}: -moz-#{$value};
+  #{$type}: -ms-#{$value};
+  #{$type}: -o-#{$value};
+  #{$type}: #{$value};
+}
