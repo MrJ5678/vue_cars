@@ -1,6 +1,6 @@
 <template>
   <div class="index-wrap">
-    <!-- <section class="cars-item">
+    <section class="cars-item">
       <header>
         <h4 class="cars-logo">
           <img src="../../assets/images/cars-logo.png" alt="mustang 2020款">
@@ -38,7 +38,7 @@
       <footer>
         <a href="javascript: void(0);" class="parking-link">某某停车场</a>
       </footer>
-    </section> -->
+    </section>
     <span @click="clickUser">carscarscarscarscarscarscarscarscarscars</span>
   </div>
 </template>
