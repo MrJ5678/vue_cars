@@ -4,13 +4,19 @@ import Index from '@/views/index'
 
 Vue.use(VueRouter)
 
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 const routes = [
   {
     path: '/',
     name: 'Index',
     component: Index,
     children: [
-      { path: '/user', name: "User", component: () => import("@/views/user") }
+      { path: '/user', name: "User", component: () => import("@/views/user") },
+      { path: '/safe', name: "Safe", component: () => import("@/views/safe") },
     ]
   },
 ]

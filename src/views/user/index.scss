@@ -1,0 +1,43 @@
+.user-info {
+  display: flex;
+  padding: 84px 0 80px 10px;
+  // background-color: pink;
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 6px solid #2f343a;
+    @include webkit(box-sizing, border-box)
+  }
+  .meta {
+    flex: 1;
+    padding-left: 17px;
+
+    .name {
+      color: #909090;
+      height: 43px;
+      line-height: 43px;
+      font-size: 18px;
+      text-indent: 10px;
+    }
+
+    span {
+      display: inline-block;
+      padding: 0 17px;
+      height: 27px;
+      line-height: 27px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      background-color: $color-blur;
+      border-radius: 100px;
+
+      i {
+        display: inline-block;
+        margin: 0 3px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+

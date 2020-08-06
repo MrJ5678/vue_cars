@@ -1,0 +1,234 @@
+.cars-item {
+  margin: auto;
+  padding: 30px 30px 0;
+  height: 257px;
+  background-color: #fff;
+  border-radius: 24px;
+  @include webkit(box-sizing, border-box);
+  @include webkit(box-shadow, 0 0 18px 0 rgba(0, 0, 0, .2));
+  header {
+    @extend %clearfix;
+  }
+}
+
+.cars-logo {
+  float: left;
+  img {
+    display: inline-block;
+    height: 34px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .name {
+    font-size: 16px;
+  }
+}
+
+.cars-attr {
+  float: right;
+  text-align: right;
+  line-height: 34px;
+  opacity: .5;
+}
+
+.cars-content {
+  position: relative;
+  margin: 11px 0 7px;
+  @extend %clearfix;
+  img {
+    float: right;
+    height: 120px;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .cars-num {
+      font-size: 18px;
+    }
+    ul.cars-elec {
+      display: inline-block;
+      padding-top: 10px;
+      li {
+        display: inline-block;
+        width: 7px;
+        height: 24px;
+        margin-right: 3px;
+        border-radius: 100px;
+        background-color: #e1e1e1;
+      }
+      // &.active-li-1 {
+      //   li:nth-child(1) { @include webkitA(background-image, linear-gradient(#17a8fa, #108dd9))}
+      // }
+      // &.active-li-2  {
+      //   li:nth-child(-n+2) { @include webkitA(background-image, linear-gradient(#17a8fa, #108dd9))}
+      // }
+      // sass 循环
+      @for $i from 1 to 10 {
+        &.active-li-#{$i}  {
+          li:nth-child(-n+#{$i}) { @include webkitA(background-image, linear-gradient(#17a8fa, #108dd9))}
+        }
+      }
+    }
+  }
+}
+
+.cars-distance {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  margin-left: 8px;
+  span {
+    margin: 0 5px;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  sub {
+    position: relative;
+    top: -1px;
+    left: 0;
+  }
+  sub:first-of-type {
+    opacity: .8;
+  }
+}
+
+footer {
+  .parking-link {
+    position: relative;
+    display: block;
+    border-top: 1px solid #e1e1e1;
+    color: $color-main;
+    opacity: .8;
+    line-height: 53px;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -5px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid #d6d7d9;
+      border-right: 1px solid #d6d7d9;
+      @include webkit(transform, rotate(45deg))
+    }
+  }
+}
+
+.cars-detail {
+  // display: solid;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 0;
+  .scroll { 
+    height: 100%;
+    overflow-y: auto; }
+  .column {
+    position: relative;
+    margin-bottom: 19px;
+    padding: 26px 0 20px;
+    font-size: 20px;
+    color: #34393f;
+    border-bottom: 1px solid #e1e1e1;
+    .close {
+      position: absolute;
+      top: 25px;
+      right: 0;
+      display: block;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      // background-color: red;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        height: 20px;
+        margin-top: -10px;
+        left: 50%;
+        margin-left: -1px;
+        border-left: 1px solid #999c9f;
+      }
+      &::before { @include webkit(transform, rotate(45deg))}
+      &::after { @include webkit(transform, rotate(-45deg))}
+    }
+  }
+  .cars-elec-box {
+    margin-top: 17px;
+    padding: 15px;
+    border-radius: 100px;
+    background-color: #fff;
+    @include webkit(box-shadow, 0 0 10px 0 rgba(0, 0, 0, .1));
+    .e-bg {
+      display: block;
+      height: 8px;
+      background-color: #e1e1e1;
+      border-radius: 100px;
+    }
+    .e-hlight {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: $color-blur;
+      border-radius: 100px;
+    }
+  }
+
+  .info {
+    margin: 32px 0 28px;
+    font-size: 16px;
+  }
+  
+  .cars-type-list {
+    li {
+      margin-bottom: 15px;
+      padding: 0 17px 0 20px;
+      height: 43px;
+      background-color: #f3f3f3;
+      border-color: #f3f3f3;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 9px;
+      font-size: 16px;
+      line-height: 43px;
+      &.current { border-color: $color-blur; }
+    }
+  }
+
+  .clause-dec {
+    i {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ccc;
+      &.current { 
+        background-color: #000;
+      }
+      &::before {
+        display: block;
+        margin: 5px;
+        content: '';
+        width: 10px;
+        height: 4px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        @include webkit(transform, rotate(-45deg));
+      }
+    }
+  }
+
+  .select-car-btn {
+    position: absolute;
+    left: 50%;
+    margin-left: -120px;
+    bottom: -42px;
+  }
+}
